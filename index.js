@@ -71,7 +71,7 @@ app.get('/users/:userId', async (req, res) => {
   try {
     const userId = req.params.userId;
     // Fetch user details from the database based on userId
-    const queryResult = await pool.query('SELECT * FROM users WHERE id = $1', [userId]);
+    const queryResult = await pool.query('SELECT iD,NAME,EMAIL FROM users WHERE id = $1', [userId]);
     res.json(queryResult.rows[0]);
   } catch (error) {
     console.error(error);
